@@ -1,0 +1,66 @@
+<h1>Listado de Películas</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Buscador</h2>
+    </div>
+    <div class="col-3">
+      <input class="form-control" type="text" id="npelicula">
+    </div>
+    <div class="col-2">
+      <button type="button" class="listbutton btn btn-secondary" (click)="list()">Buscar</button>
+    </div>
+  </div>
+</div>
+
+
+<app-mensaje></app-mensaje>
+
+<div class="container" id="tablaActores" *ngIf="observable2">
+  <button class="btn btn-success" (click)="borrarActores()">Borrar Actores</button>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Imagen</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Nombre personaje</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="observable">
+      <tr *ngFor="let actor of observable2.actors">
+        <td><img src={{actor.image}} alt="" width="100"></td>
+        <td>{{actor.name}}</td>
+        <td>{{actor.asCharacter}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<div class="container">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Imagen</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Favoritos</th>
+        <th scope="col">Actores</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="observable">
+      <tr *ngFor="let peli of observable.results">
+        <td><img src={{peli.image}} alt="" width="100"></td>
+        <td>{{peli.title}}</td>
+        <td>{{peli.resultType}}</td>
+        <td> {{peli.description}}</td>
+        <td (click)="save(peli)"><span class="btn btn-warning" id={{peli.id}}><em class="bi bi-star"></em></span></td>
+        <td (click)="mostrarActores(peli)"><span class="btn btn-info" id={{peli.id}}><em
+              class="bi bi-search"></em></span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

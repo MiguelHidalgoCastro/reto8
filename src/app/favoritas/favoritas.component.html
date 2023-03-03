@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <h2 class="text-center">Mis Favoritos</h2>
+    <app-mensaje></app-mensaje>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let peli of listadoPelis">
+                    <td><img src={{peli.image}} alt="" width="100"></td>
+                    <td>{{peli.title}}</td>
+                    <td>{{peli.resultType}}</td>
+                    <td> {{peli.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
