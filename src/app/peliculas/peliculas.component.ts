@@ -41,11 +41,13 @@ export class PeliculasComponent {
   mostrarActores(peli: Pelicula) {
     let url: any = "https://imdb-api.com/en/API/FullCast/k_1uxldlee/" + peli.id
     this.actoresService.getActores(url).subscribe(actores => this.observable2 = actores)
+    new MensajeComponent().crearmensaje('Buscar Actores', 'Mostrando Actores de ' + peli.title, 'exito')
   }
 
 
   borrarActores() {
     let divActores: HTMLElement = document.getElementById('tablaActores')!
     divActores.textContent = ''
+    new MensajeComponent().crearmensaje('Borrando Actores', 'Borrando Actores', 'exito')
   }
 }
