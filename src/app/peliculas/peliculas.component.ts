@@ -21,7 +21,7 @@ export class PeliculasComponent {
 
   list() {
     let input: any = document.getElementById('npelicula')
-    let url: any = "https://imdb-api.com/en/API/SearchMovie/k_1uxldlee/" + input.value
+    let url: any = "https://imdb-api.com/en/API/SearchMovie/k_b6wwrh4z/" + input.value
 
     this.peliculaService.getLista(url).subscribe(peliculas => this.observable = peliculas)
     new MensajeComponent().crearmensaje('Buscar Peliculas', 'Mostrando resultados de ' + input.value, 'exito')
@@ -39,7 +39,7 @@ export class PeliculasComponent {
   }
 
   mostrarActores(peli: Pelicula) {
-    let url: any = "https://imdb-api.com/en/API/FullCast/k_1uxldlee/" + peli.id
+    let url: any = "https://imdb-api.com/en/API/FullCast/k_b6wwrh4z/" + peli.id
     this.actoresService.getActores(url).subscribe(actores => this.observable2 = actores)
     new MensajeComponent().crearmensaje('Buscar Actores', 'Mostrando Actores de ' + peli.title, 'exito')
   }
